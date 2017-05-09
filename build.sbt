@@ -27,6 +27,13 @@ lazy val root = (project in file(".")).
         "-Xfuture"
       )
     )),
-    resolvers += Resolver.typesafeRepo("releases"),
-    libraryDependencies += scalaTest % Test
+    resolvers ++= Seq(
+      Resolver.sonatypeRepo("releases"),
+      Resolver.sonatypeRepo("snapshots")
+    ),
+    libraryDependencies += scalaTest % Test,
+    libraryDependencies ++= Seq(
+      "org.typelevel" %% "cats" % "0.9.0",
+      "com.chuusai" %% "shapeless" % "2.3.2"
+      )
 )
