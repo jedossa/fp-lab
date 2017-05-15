@@ -4,10 +4,6 @@ trait Transformer[A, B] {
   def transform: (A) => B
 }
 
-object Transformer {
-  def transform[A, B](a: A)(implicit transformer: Transformer[A, B]): B = transformer.transform(a)
-}
-
 trait TransformerSyntax {
   implicit class TransformerOps[A](a: A) {
     def transform[B](implicit transformer: Transformer[A, B]): B = transformer.transform(a)
