@@ -23,9 +23,18 @@ lazy val root = (project in file(".")).
         "-Ywarn-dead-code",
         "-Ywarn-numeric-widen",
         "-Ywarn-value-discard",
-        "-Ywarn-unused-import",
-        "-Xfuture"
-      )
+        //"-Ywarn-unused-import",
+        "-Xfuture",
+        "-Yinduction-heuristics",
+        "-Ykind-polymorphism",
+        "-Yliteral-types",
+        "-Xstrict-patmat-analysis",
+        "-Xlint:strict-unsealed-patmat"
+      ),
+      scalacOptions in (Compile, console) ~= (_.filterNot(Set(
+        "-Ywarn-unused:imports",
+        "-Xfatal-warnings"
+      )))
     )),
     resolvers ++= Seq(
       Resolver.sonatypeRepo("releases"),
