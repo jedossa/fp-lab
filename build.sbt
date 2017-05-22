@@ -23,7 +23,7 @@ lazy val root = (project in file(".")).
         "-Ywarn-dead-code",
         "-Ywarn-numeric-widen",
         "-Ywarn-value-discard",
-        //"-Ywarn-unused-import",
+        "-Ywarn-unused-import",
         "-Xfuture",
         "-Yinduction-heuristics",
         "-Ykind-polymorphism",
