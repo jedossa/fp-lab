@@ -39,7 +39,7 @@ case object ℤ extends R2[Int] {
   override def ⇌ : ∆ = δ(identity)(identity)
 }
 
-object Main extends App {
+object MMain extends App {
   import ℤ._
 
   val ms = List(→,⇌,↓,⇌,↓,↗,→,↤,↙,↖,↤,↗)
