@@ -27,12 +27,10 @@ object Parsers extends ProductTypeClassCompanion[Parser] {
           tail <- ct.parse(t.mkString(","))
         } yield head :: tail
         case _ => EmptyError().asLeft
-      }
-    )
+      })
 
     override def project[F, G](instance: => Parser[G], to: (F) => G, from: (G) => F): Parser[F] = Parser[F](
-      instance.parse(_) map from
-    )
+      instance.parse(_) map from)
 
     override def emptyProduct: Parser[HNil] = Parser[HNil](s => if (s.isEmpty) HNil.asRight else EmptyError().asLeft)
   }

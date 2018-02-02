@@ -42,7 +42,7 @@ case object ℤ extends R2[Int] {
 object MMain extends App {
   import ℤ._
 
-  val ms = List(→,⇌,↓,⇌,↓,↗,→,↤,↙,↖,↤,↗)
+  val ms = List(→, ⇌, ↓, ⇌, ↓, ↗, →, ↤, ↙, ↖, ↤, ↗)
   val m: ∆ = Monoid[∆].combineAll(ms)
   val r: P = m(Ø)
 

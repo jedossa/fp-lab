@@ -11,15 +11,15 @@ trait TransformerSyntax {
 }
 
 trait TransformerInstances extends TransformerSyntax {
-  implicit def tuple2Adt1 = new Transformer[(String, Int), ADT1] {
+  implicit def tuple2Adt1: Transformer[(String, Int), ADT1] = new Transformer[(String, Int), ADT1] {
     override def transform: ((String, Int)) => ADT1 = ADT1.tupled
   }
 
-  implicit def dto12Adt1 = new Transformer[DTO1, ADT1] {
+  implicit def dto12Adt1: Transformer[DTO1, ADT1] = new Transformer[DTO1, ADT1] {
     override def transform: (DTO1) => ADT1 = dto => ADT1(dto.e, dto.f)
   }
 
-  implicit def tuple2Adt2 = new Transformer[(String, Int), ADT2] {
+  implicit def tuple2Adt2: Transformer[(String, Int), ADT2] = new Transformer[(String, Int), ADT2] {
     override def transform: ((String, Int)) => ADT2 = ADT2.tupled
   }
 }

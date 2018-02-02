@@ -4,8 +4,7 @@ import sbt.Keys.scalacOptions
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-      scalaOrganization := "org.typelevel",
-      scalaVersion := "2.12.2-bin-typelevel-4",
+      scalaVersion := "2.12.4",
       scalacOptions ++= Seq(
         "-deprecation",
         "-encoding",
@@ -25,11 +24,6 @@ lazy val root = (project in file(".")).
         "-Ywarn-value-discard",
         "-Ywarn-unused-import",
         "-Xfuture",
-        "-Yinduction-heuristics",
-        "-Ykind-polymorphism",
-        "-Yliteral-types",
-        "-Xstrict-patmat-analysis",
-        "-Xlint:strict-unsealed-patmat"
       ),
       scalacOptions in (Compile, console) ~= (_.filterNot(Set(
         "-Ywarn-unused:imports",
@@ -42,7 +36,7 @@ lazy val root = (project in file(".")).
     ),
     libraryDependencies += scalaTest % Test,
     libraryDependencies ++= Seq(
-      "org.typelevel" %% "cats" % "0.9.0",
-      "com.chuusai" %% "shapeless" % "2.3.2"
+      "org.typelevel" %% "cats-core" % "1.0.1" withSources(),
+      "com.chuusai" %% "shapeless" % "2.3.3" withSources()
       )
 )
