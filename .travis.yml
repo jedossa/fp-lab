@@ -1,0 +1,7 @@
+dist: trusty
+sudo: required
+jdk:
+  - oraclejdk8
+languaje: scala
+scala:
+   - 2.12.4
