@@ -15,7 +15,7 @@ object Bool {
   type ||[A <: Bool, B <: Bool] = A#If[True, B]
   type Not[A <: Bool] = A#If[False, True]
 
-  case class BoolRep[B <: Bool](value: Boolean)
+  final case class BoolRep[B <: Bool](value: Boolean)
 
   implicit val falseRep: BoolRep[False] = BoolRep(false)
   implicit val trueRep: BoolRep[True] = BoolRep(true)
@@ -26,7 +26,7 @@ object Bool {
 object BMain extends App {
   import Bool._
 
-  val b = toBoolean[True && False || Not[False]]
+  val b: Boolean = toBoolean[True && False || Not[False]]
 
   println(b)
 

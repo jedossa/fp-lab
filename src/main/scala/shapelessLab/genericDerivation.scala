@@ -42,10 +42,10 @@ object Parsers extends ProductTypeClassCompanion[Parser] {
   }
 }
 
-case class ADT1(s: String, d: Option[Double], e: Option[Double])
-case class ADT11(s: String, d: Option[Double], i: Int)
-case class ADT2(s: String, x: String, i: Option[Date])
-case class ADT3(s: String, i: Int, d: Double, date: Date)
+final case class ADT1(s: String, d: Option[Double], e: Option[Double])
+final case class ADT11(s: String, d: Option[Double], i: Int)
+final case class ADT2(s: String, x: String, i: Option[Date])
+final case class ADT3(s: String, i: Int, d: Double, date: Date)
 
 object Main extends App {
   import Parsers._
