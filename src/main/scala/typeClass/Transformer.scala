@@ -26,9 +26,9 @@ trait TransformerInstances extends TransformerSyntax {
 
 object transformers extends TransformerInstances
 
-case class ADT1(a: String, b: Int)
-case class ADT2(c: String, d: Int)
-case class DTO1(e: String, f: Int)
+final case class ADT1(a: String, b: Int)
+final case class ADT2(c: String, d: Int)
+final case class DTO1(e: String, f: Int)
 
 object x {
   import transformers.{ tuple2Adt1, dto12Adt1, TransformerOps }

@@ -37,10 +37,10 @@ object CSVs extends LabelledProductTypeClassCompanion[CSV] {
   implicit def foldCSV[A, F[_]](implicit c: CSV[A], f: Foldable[F]): CSV[F[A]] = CSV[F[A]](f.foldLeft(_, "")((a, b) => s"[${a ++ c.to(b)}]"))
 }
 
-case class LADT1(s: String = "1", d: Option[Double] = Some(1.1D), e: Option[Double] = None)
-case class LADT11(s: String = "11", d: Option[Double] = None, i: Int = 11, l: List[LADT3] = List(LADT3(), LADT3()))
-case class LADT2(s: String = "2", x: String = "2", i: Option[Date] = None)
-case class LADT3(s: String = "3", i: Int = 3, d: Double = 3D, date: Date = new Date())
+final case class LADT1(s: String = "1", d: Option[Double] = Some(1.1D), e: Option[Double] = None)
+final case class LADT11(s: String = "11", d: Option[Double] = None, i: Int = 11, l: List[LADT3] = List(LADT3(), LADT3()))
+final case class LADT2(s: String = "2", x: String = "2", i: Option[Date] = None)
+final case class LADT3(s: String = "3", i: Int = 3, d: Double = 3D, date: Date = new Date())
 
 object LMain extends App {
   import CSVs._

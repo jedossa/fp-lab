@@ -34,7 +34,7 @@ trait ReadError {
   def msg: String
 }
 
-case class EmptyError(msg: String = "Field Empty") extends ReadError
-case class IntError(msg: String = "Not an Int") extends ReadError
-case class DoubleError(msg: String = "Not a Double") extends ReadError
-case class DateError(msg: String = "Not a Date") extends ReadError
+final case class EmptyError(msg: String = "Field Empty") extends ReadError
+final case class IntError(msg: String = "Not an Int") extends ReadError
+final case class DoubleError(msg: String = "Not a Double") extends ReadError
+final case class DateError(msg: String = "Not a Date") extends ReadError
